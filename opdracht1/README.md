@@ -4,29 +4,55 @@
 ## Opdracht 1 - Progressive Enhancement
 
 ### Opdracht 1.1 - Breek het Web
-Het Web laten 'breken' door features van het platform bewust uit te zetten. Images, custom fonts, JavaScript, kleur, breedband internet, etc. Allemaal met als doel je te laten beseffen hoeveel je nog niet weet van het Web, erachter komen dat je misschien aannames hebt die niet kloppen, en om je je in te laten leven in de eindgebruiker.
+### Javascript
 
-Onderzoek minimaal twee features. Dat betekent uitvogelen wat het voor impact heeft op de sites die je kent en normaal gebruikt. Kies sites in je directe omgeving: van je werkgever, lokale vereniging, de cafetaria om de hoek, en/of eerdere projecten die je zelf gedaan hebt.
+####Veel voorkomende problemen**
+- Modals werken niet
+- Formulieren valideren niet
+- Dropdown menu’s werken niet
+- Collapse functionaliteit werkt niet
+- Preloaders blijven voor altijd laden
+- Content die geladen wordt via JS laadt niet.
 
-Kies 2 features van de 8
-- Zoek uit welke problemen ze kunnen veroorzaken (verzamel cijfers, meningen, ervaringen)
-- Zoek uit hoe je dit kunt testen (hoe kun je een feature ‘uitzetten’)
-- Vind een aantal sites waar dit ook problemen oplevert (uit je directe omgeving)
-- Beschrijf hoe je dit kan fiksen
-- Maak hierover een presentatie en neem die woensdag mee, dan gaan we de resultaten bespreken
-Lezen: [Everyone has JavaScript, right?](https://kryogenix.org/code/browser/everyonehasjs.html) en [I Turned Off JavaScript and it was Glorious](https://www.wired.com/2015/11/i-turned-off-javascript-for-a-whole-week-and-it-was-glorious/)
+####Zoek uit hoe je dit kunt testen (hoe kun je een feature ‘uitzetten’)  
+In de Chrome developer tools is het mogelijk om onder “: (icon met 3 puntjes)" > settings  > disable javascript” javascript uit te zetten.
+
+####Vind een aantal sites waar dit ook problemen oplevert (uit je directe omgeving).
+- Dribbble
+- Stripe
+- Booking.com 
+
+####Beschrijf hoe je dit kan fiksen
+**Modals werken niet**  
+Standaard een link maken die linkt naar een pagina waarop de elementen uit de modal te zien zijn en dit gedrag aanpassen met javascript. Hierdoor wordt de gebruiker naar de pagina verwezen mocht de modal niet werken.
+
+**Formulieren valideren niet**  
+HTML regex validatie gebruiken om formulieren te valideren.
 
 
-### Opdracht 1.2 - Fork je OBA
-Hoe zit het eigenlijk met Progressive Enhancement van je OBA opdracht? Waarschijnlijk kan daar wel het één en ander aan verbeterd worden, dat ding is immers in een week in elkaar gehackt! 
+**Dropdown menu’s werken niet**  
+Elementen alleen verbergen met javascript en niet met css waardoor ze wel gewoon zichtbaar zijn wanneer javascript niet werkt.
 
-Voor deze opdracht ga je toepassen wat je van opdracht 1.1 hebt geleerd.
-- Pas Progressive enhancement toe op je OBA Web App. 
-- Check je OBA Web App op de 8 features uit opdracht 1.1 en verbeter de code waar mogelijk.
-- Test  je OBA Web App in het device lab.
-- Laat je OBA Web App voorlezen door een screenreader. 
-- Gebruik onderstaande artikelen om je code te optimaliseren.
-[The accessibility mindset](https://24ways.org/2015/the-accessibility-mindset/) en [Accessibility Originates With UX: A BBC iPlayer Case Study](https://www.smashingmagazine.com/2015/02/bbc-iplayer-accessibility-case-study/)
+**Collapse functionaliteit werkt niet**  
+Elementen alleen verbergen met javascript en niet met css waardoor ze wel gewoon zichtbaar zijn wanneer javascript niet werkt.
+
+**Content die geladen wordt via JS laadt niet.**  
+Geen JS gebruiken om content te parsen.
+
+
+
+### Opdracht 1.2 - WAFS
+
+**Afbeeldingen**  
+
+**Custom fonts**
+**Javascript (volledig)**  
+**Kleur**
+**Breedband internet**
+**Cookies**
+**localStorage**
+**Muis/Trackpad**
+
 
 Criteria
 - Zet je code op Github
