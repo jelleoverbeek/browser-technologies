@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WAFS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#now-playing">Now playing</a></li>
+            <li><a href="#recent-tracks">Recent tracks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="now-playing">
+    <div class="container" id="current-track">
+        <div class="col">
+            <h1>Now playing</h1>
+        </div>
+
+        <div class="col col-40">
+            <img class="img" src="">
+        </div>
+
+        <div class="col col-60">
+            <h1><span class="artist"></span> - <span class="name"></span></h1>
+            <ul class="tags">
+                <li class="name"></li>
+            </ul>
+            <h3 class="listeners"></h3>
+        </div>
+    </div>
+</section>
+
+<section id="recent-tracks">
+    <div class="container">
+        <h1>Recent tracks</h1>
+        <ul id="track-list" class="track-list"></ul>
+    </div>
+</section>
+
+<section id="track">
+    <div class="container details">
+
+        <div class="col col-40">
+            <img src="">
+        </div>
+
+        <div class="col col-60">
+            <h1><span class="artist"></span> - <span class="name"></span></h1>
+            <ul class="tags">
+                <li class="name"></li>
+            </ul>
+            <h3><span class="listeners"></span> listeners</h3>
+        </div>
+
+        <div class="col">
+            <h2>Similar tracks</h2>
+            <h3 id="no-similar-tracks" class="hidden">No similar tracks found</h3>
+            <ul id="similar-tracks" class="track-list"></ul>
+        </div>
+    </div>
+</section>
+
+<section id="error">
+    <div class="container">
+        <h1>Something went wrong...</h1>
+        <h2></h2>
+        <a href="#recent-tracks">Back to recent tracks</a>
+    </div>
+</section>
+
+<div class="container preloader">
+    <img src="assets/img/loader.svg">
+</div>
+
+<script src="./assets/js/routie.js"></script>
+<script src="./assets/js/transparency.js"></script>
+<script src="./assets/js/config.js"></script>
+<script src="./assets/js/app.js" type="module"></script>
+</body>
+</html>
