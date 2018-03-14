@@ -39,7 +39,7 @@ Elementen alleen verbergen met javascript en niet met css waardoor ze wel gewoon
 Geen JS gebruiken om content te parsen.
 
 ## Kleuren
-###Veel voorkomende problemen**
+###Veel voorkomende problemen
 - Ontwerpen verliezen hiërarchie of deze verandert qua hiërarchie.
 - Wanneer er alleen kleur wordt gebruikt om iets duidelijk te maken kunnen sommige mensen dit niet zien. Denk hierbij bijvoorbeeld aan rode of groene kleuren om duidelijk te maken dat iets goed of fout is bij een quiz.
 - Weinig contrast.
