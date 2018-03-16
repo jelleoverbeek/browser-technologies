@@ -116,3 +116,13 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
         document.querySelector(route).classList.remove("hidden")
     }
 ```
+
+###Device lab
+- LG Google android - Works!  ![](https://d.pr/i/2zskOn+ "")
+- Samsung Google Android - JavaScript won't load, probably because of the ES6 modules  ![](https://d.pr/i/MAWQs5+ "")
+- Kindle met browser - Doesn't even load the page ![](https://d.pr/i/wYWsuH+ "")
+- Nokia Lumia met windows - JavaScript won't load, probably because of the ES6 modules  ![](https://d.pr/i/z7h8Tq+ "")
+- Revelation met Firefox OS -  ![](https://d.pr/i/3llVfO+ "")
+- Windows Surface - JavaScript wont' load  ![](https://d.pr/i/n1pb1G+ "")
+- Microsoft Edge (latest) - Works! ![](https://d.pr/i/KLdQY7+ "")
+- Mozilla Firefox - JavaScript won't load, probably because of the ES6 modules ![](https://d.pr/i/6E07hD+ "")
