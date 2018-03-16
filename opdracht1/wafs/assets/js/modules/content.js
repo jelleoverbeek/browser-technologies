@@ -94,7 +94,7 @@ const content = {
         // Add 12 items of tracklist to html
         for(let i = 0; i < 12; i++) {
 
-            let html = '<li><div><img src="' + this.trackList[i].imgSrc + '"><a href="#track/'+ this.trackList[i].slug + '">' + this.trackList[i].track + '</a></div></li>'
+            let html = '<li><div><img src="' + this.trackList[i].imgSrc + '" alt="' + this.trackList[i].track + ', album cover"><a href="#track/'+ this.trackList[i].slug + '">' + this.trackList[i].track + '</a></div></li>'
             document.querySelector("#track-list").insertAdjacentHTML('afterbegin', html)
         }
     }
