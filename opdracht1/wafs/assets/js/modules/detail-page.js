@@ -39,7 +39,7 @@ const detailPage = {
         tracksEl.innerHTML = "";
 
         this.content["similar-tracks"].forEach(function (item) {
-            let html = '<li><div><img src="' + item.imgSrc + '" alt="' + item.track + ', album cover"><a href="#track/'+ item.slug + '">' + item.track + '</a></div></li>'
+            let html = '<li><div><img src="' + item.imgSrc + '" alt=""><a href="#track/'+ item.slug + '">' + item.track + '</a></div></li>'
             tracksEl.insertAdjacentHTML('afterbegin', html)
         })
     },

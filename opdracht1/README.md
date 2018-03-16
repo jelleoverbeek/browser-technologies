@@ -98,7 +98,20 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
 - The app uses localStorage to increase the loading speed of visited tracks. If localStorage is not available it will get the data from the Last.fm API every time. So it won't break.
 
 ### Muis/Trackpad
-- Tabbing trough the page works as expected.
+- To increase the usability for keyboard users I added some focus states.
 
-### Screenreader
-- I tested it using the native Mac OS screenreader and it worked well.
+### ScreenReader
+- I tested it using the native Mac OS screenreader and it worked because I used semantic elements. I added 
+
+### CSS not loading 
+- Added JavaScript snippet that adds inline CSS instead of a class when the CSS didn't load.  
+```
+    const stylesheet = document.head.querySelector('link[href*="./assets/css/style.css"]'),
+    
+    // Check if stylesheet is loaded, if not add inline css instead of class
+    if(!stylesheet) {
+        document.querySelector(route).style.display = "flex"
+    } else {
+        document.querySelector(route).classList.remove("hidden")
+    }
+```
