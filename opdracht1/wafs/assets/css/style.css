@@ -216,6 +216,10 @@ img {
     transition: all ease-in-out .15s;
 }
 
+.track-list li a:focus {
+    outline: 0;
+}
+
 .track-list li:hover a,
 .track-list li:focus-within a {
     transform: translateY(0%);
