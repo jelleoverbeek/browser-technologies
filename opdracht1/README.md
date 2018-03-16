@@ -73,32 +73,32 @@ Afbeelding als fallback (background-repeat) en een solid kleur die de website no
 
 App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
 
-**Afbeeldingen**
+### Afbeeldingen
 - The page "works" the same without images. However, the user needs to hover over the items to know which song is displayed.
 - **Roadmap:** show the text by default. 
 
-**Custom fonts**
+### Custom fonts
 - A fallback font is set.
 
-**Javascript (volledig)**
+### Javascript (volledig)
 - Currently the app won't work without JS.
 - **Roadmap:** All content is currently fetched using JavaScript. So getting the data serverside would be nice. 
 
-**Kleur**
+### Kleur
 - According to the Spectrum plugin all the colors can be seen by colorblind people. The hierarchy stays the same.
  
-**Breedband internet**
+### Breedband internet
 - Added defer attributes to the scripts and moved them to the head. The app loading speed is quite fast but it depends on the Last.fm API.
 - Font display is set to swap. This way the user doesn't have to wait for the custom fonts to load.
 
-**Cookies**
+### Cookies
 - The app does not use any cookies.
 
-**localStorage**
+### localStorage
 - The app uses localStorage to increase the loading speed of visited tracks. If localStorage is not available it will get the data from the Last.fm API every time. So it won't break.
 
-**Muis/Trackpad**
+### Muis/Trackpad
 - Tabbing trough the page works as expected.
 
-**Screenreader**
+### Screenreader
 - I tested it using the native Mac OS screenreader and it worked well.
