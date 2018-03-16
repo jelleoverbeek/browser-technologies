@@ -117,7 +117,7 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
     }
 ```
 
-### Device lab
+### Device lab  
 - LG Google android - Works!  ![](https://d.pr/i/2zskOn+ "")
 - Samsung Google Android - JavaScript won't load, probably because of the ES6 modules  ![](https://d.pr/i/MAWQs5+ "")
 - Kindle met browser - Doesn't even load the page ![](https://d.pr/i/wYWsuH+ "")
