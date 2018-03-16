@@ -78,8 +78,10 @@ App: https://jelleoverbeek.github.io/wafs/#now-playing
 
 
 **Custom fonts**  
+
+
 **Javascript (volledig)**  
-All content is currently fetched using JavaScript. 
+All content is currently fetched using JavaScript. So getting the data serverside would be nice. 
 
 **Kleur**
 **Breedband internet**

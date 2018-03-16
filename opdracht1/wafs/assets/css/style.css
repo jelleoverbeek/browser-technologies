@@ -1,48 +1,49 @@
 @font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-Regular.woff") format('woff');
-    font-weight: 400;
+    font-family: 'Roboto';
     font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-Italic.woff") format('woff');
     font-weight: 400;
-    font-style: italic;
     font-display: swap;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url("../fonts/Roboto-Regular.woff") format('woff');
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-Medium.woff") format('woff');
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Roboto Italic'), local('Roboto-Italic'), url("../fonts/Roboto-Italic.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 500;
     font-display: swap;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url("../fonts/Roboto-Medium.woff") format('woff');
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-MediumItalic.woff") format('woff');
+    font-family: 'Roboto';
+    font-style: italic;
     font-weight: 500;
-    font-style: italic;
     font-display: swap;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url("../fonts/Roboto-MediumItalic.woff") format('woff');
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-Bold.woff") format('woff');
-    font-weight: 600;
+    font-family: 'Roboto';
     font-style: normal;
+    font-weight: 700;
     font-display: swap;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url("../fonts/Roboto-Bold.woff") format('woff');
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-BoldItalic.woff") format('woff');
-    font-weight: 600;
+    font-family: 'Roboto';
     font-style: italic;
+    font-weight: 700;
     font-display: swap;
+    src: local('Roboto Bold'), local('Roboto-BoldItalic'), url("../fonts/Roboto-BoldItalic.woff") format('woff');
 }
 
 * {
@@ -50,8 +51,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;;
-    font-display: swap;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     color: #212121;
     -webkit-font-smoothing: antialiased;
@@ -86,7 +86,7 @@ h3 {
 }
 
 nav {
-    //background: #212121;
+    /*background: #212121;*/
     height: 3.5rem;
     display: flex;
     align-items: center;
@@ -212,8 +212,12 @@ img {
 }
 
 .track-list li div {
+    width: 11.75rem;
+    height: 11.75rem;
+    border-radius: 0.25rem;
     position: relative;
     overflow: hidden;
+    background-color: #1468c7;
 }
 
 .track-list li a {
