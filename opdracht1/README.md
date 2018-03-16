@@ -101,7 +101,8 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
 - To increase the usability for keyboard users I added some focus states.
 
 ### ScreenReader
-- I tested it using the native Mac OS screenreader and it worked because I used semantic elements. I added 
+- I tested it using the native Mac OS screenreader and it worked because I used semantic elements.
+- Changed alt attributes to empty ones so the screenreader won't read the src attributes.  
 
 ### CSS not loading 
 - Added JavaScript snippet that adds inline CSS instead of a class when the CSS didn't load.  
