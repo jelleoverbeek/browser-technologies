@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FAQ</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        section,
+        .section {
+            max-width: 48em;
+            margin: 0 auto;
+            padding: 1em;
+        }
+
+        details,
+        .details {
+            margin-top: 1.5rem;
+            list-style: none;
+        }
+
+        summary,
+        .summary {
+            display: block;
+            font-weight: bold;
+            list-style: none;
+            margin: 1em 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .no-support-details .summary {
+            background: url("chevron.png") no-repeat center left;
+            padding-left: 1.5em;
+        }
+
+        .no-support-details .summary.open {
+            background: url("chevron-down.png") no-repeat center left;
+        }
+    </style>
+</head>
+<body>
+
+<section class="section">
+    <h1>Frequently asked questions</h1>
+
+    <details class="details">
+        <summary class="summary">Question about something</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos ducimus incidunt ipsam laudantium modi nemo, nihil nisi temporibus. Debitis delectus dolorem doloremque enim vitae. Amet earum, necessitatibus perspiciatis rem sed soluta. Adipisci aliquam exercitationem illum obcaecati! Accusamus ad alias, amet delectus doloremque eligendi, iusto natus nisi quia sunt, ullam!</p>
+    </details>
+
+    <details class="details">
+        <summary class="summary">Question about something</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, incidunt!</p>
+    </details>
+
+    <details class="details">
+        <summary class="summary">Question about something</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, incidunt!</p>
+    </details>
+</section>
+
+<script>
+    var detailsSupported = 'open' in document.createElement('details');
+
+    if (!detailsSupported) {
+        document.body.className = "no-support-details";
+        var summaryElements = document.querySelectorAll("summary");
+
+        for (var i = 0; i < summaryElements.length; i++) {
+
+            summaryElements[i].nextElementSibling.className = "hidden";
+
+            summaryElements[i].addEventListener("click", function (ev) {
+                if(this.nextElementSibling.className === "hidden") {
+                    this.className = "summary open";
+                    this.nextElementSibling.className = "";
+                } else {
+                    this.className = "summary";
+                    this.nextElementSibling.className = "hidden";
+                }
+            })
+        }
+    }
+</script>
+
+</body>
+</html>
