@@ -44,23 +44,22 @@
             height: auto;
             border-radius: 0.25em;
 
-            transition: border ease-in-out 0.2s;
+            transition: all ease-in-out 0.1s;
         }
 
-        form {
-            max-width: 50%;
-        }
-
-
-        #images--thumbs {
+        #images-thumbs {
             position: relative;
         }
 
-        #images--thumbs img {
-            border: 5px solid #ffffff;
+        #images-thumbs img {
+            border: 4px solid #ffffff;
         }
 
-        #images--thumbs input[type="radio"]{
+        #images-thumbs label:nth-of-type(odd) {
+            padding-left: 0;
+        }
+
+        #images-thumbs input[type="radio"]{
             position: absolute;
             left: 0;
             top: 0;
@@ -69,17 +68,17 @@
             width: 0;
         }
 
-        #images--thumbs input[type="radio"]:checked + label img {
-            border: 5px solid #157EE7;
+        #images-thumbs input[type="radio"]:checked + label img {
+            border: 4px solid #5784FF;
         }
         
-        #images--thumbs label {
+        #images-thumbs label {
             display: inline-block;
             width: 49%;
             padding: .25em;
         }
 
-        form {
+        #images-thumbs {
             display: inline-block;
             width: 49.5%;
         }
@@ -92,6 +91,33 @@
             text-align: right;
             vertical-align: top;
         }
+
+        input[type="file"] {
+            background-color: #f7f7f7;
+            border: 2px dashed #5784FF;
+            border-radius: .25em;
+            width: 100%;
+            padding: 2em;
+            margin-top: 1em;
+            text-align: center;
+        }
+
+        button {
+            background-color: #5784FF;
+            color: #fff;
+            padding: 1em 2em;
+            font-size: 1em;
+            border: 0;
+            border-radius: .25em;
+            font-weight: 500;
+            margin-top: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4c78e3;
+            transition: all ease-in-out 0.1s;
+        }
     </style>
 </head>
 <body>
@@ -101,27 +127,31 @@
     <h1>Kies een afbeelding</h1>
     <form>
         
-        <fieldset id="images--thumbs">
+        <fieldset id="images-thumbs">
             
             <input type="radio" name="image" id="image-1">
             <label for="image-1">
-                <img src="http://via.placeholder.com/230x180" alt="">
+                <img src="image-1.png" alt="">
             </label>
             
             <input type="radio" name="image" id="image-2">
             <label for="image-2">
-                <img src="http://via.placeholder.com/230x180" alt="">
+                <img src="image-2.png" alt="">
             </label>
 
             <input type="radio" name="image" id="image-3">
             <label for="image-3">
-                <img src="http://via.placeholder.com/230x180" alt="">
+                <img src="image-3.png" alt="">
             </label>
             <input type="radio" name="image" id="image-4" checked>
             <label for="image-4">
-                <img src="http://via.placeholder.com/230x180" alt="">
+                <img src="image-4.png" alt="">
             </label>
         </fieldset>
+
+        <div id="image-preview">
+            <img src="http://via.placeholder.com/800x600" alt="">
+        </div>
 
         <fieldset>
             <input type="file">
@@ -131,10 +161,6 @@
             <button>Submit</button>
         </fieldset>
     </form>
-
-    <div id="image-preview">
-        <img src="http://via.placeholder.com/800x600" alt="">
-    </div>
 </section>
 
 <script>
