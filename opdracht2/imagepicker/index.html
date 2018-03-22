@@ -45,25 +45,25 @@
             transition: all ease-in-out 0.1s;
         }
 
-        #images-thumbs {
+        #thumbs {
             position: relative;
         }
 
-        #images-thumbs img {
+        #thumbs img {
             border: 4px solid #ffffff;
             border-radius: 0.25em;
             pointer-events: none;
         }
 
-        #images-thumbs label:hover img{
+        #thumbs label:hover img{
             border: 4px solid #b2caff;
         }
 
-        #images-thumbs label:nth-of-type(odd) {
+        #thumbs label:nth-of-type(odd) {
             padding-left: 0;
         }
 
-        #images-thumbs input[type="radio"]{
+        #thumbs input[type="radio"]{
             position: absolute;
             left: 0;
             top: 0;
@@ -72,17 +72,17 @@
             width: 0;
         }
 
-        #images-thumbs input[type="radio"]:checked + label img {
+        #thumbs input[type="radio"]:checked + label img {
             border: 4px solid #5784FF;
         }
 
-        #images-thumbs label {
+        #thumbs label {
             display: inline-block;
             width: 49%;
             padding: .25em;
         }
 
-        #images-thumbs {
+        #thumbs {
             display: inline-block;
             width: 49.5%;
         }
@@ -144,7 +144,7 @@
     <h1>Kies een afbeelding</h1>
     <form>
 
-        <fieldset id="images-thumbs">
+        <fieldset id="thumbs">
 
             <input type="radio" name="image" id="image-1" value="image-1.png">
             <label for="image-1">
@@ -178,14 +178,11 @@
 </section>
 
 <script>
-
-
     if(window.FileReader) {
 
         function addThumb(src) {
-            var thumbs = document.querySelector("#images-thumbs");
+            var thumbs = document.querySelector("#thumbs");
             var id = thumbs.querySelectorAll("img").length + 1;
-
             var radioHTML = '<input type="radio" name="image" id="image-' + id + '" value="' + src + '">';
             var labelHTML = '<label for="image-' + id + '"><img src="' + src + '"></label>';
 
