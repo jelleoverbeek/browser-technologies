@@ -9,7 +9,6 @@
             box-sizing: border-box;
         }
 
-
         body {
             font-family: "Roboto", sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -41,12 +40,27 @@
 
         img {
             max-width: 100%;
+            max-height: 100%;
             height: auto;
+            width: auto;
             transition: all ease-in-out 0.1s;
         }
 
         #thumbs {
             position: relative;
+        }
+
+        #thumbs.full-width {
+            width: 100%;
+        }
+
+        #thumbs.full-width label {
+            width: 25%;
+            height: auto;
+        }
+
+        #thumbs label {
+            height: 200px;
         }
 
         #thumbs img {
@@ -178,8 +192,13 @@
 </section>
 
 <script>
-    if(window.FileReader) {
+    var fileInput = document.querySelector('input[type=file]');
 
+    function clearRadioInput() {
+        document.querySelector("input[type=radio]:checked").checked = false;
+    }
+
+    if(window.FileReader) {
         function addThumb(src) {
             var thumbs = document.querySelector("#thumbs");
             var id = thumbs.querySelectorAll("img").length + 1;
@@ -216,21 +235,27 @@
             }
         }
 
-        var fileInput = document.querySelector('input[type=file]');
         var radioButtons = document.querySelectorAll('input[type=radio]');
-
         for (var i = 0; i < radioButtons.length; i++) {
             radioButtons[i].addEventListener("change", function () {
                 setPreviewImg(this.value);
             });
         }
 
+
         fileInput.addEventListener("change", function () {
             previewFile();
         });
 
     } else {
-        document.getElementById("image-preview").className = "hidden";
+        fileInput.addEventListener("change", function () {
+            clearRadioInput();
+        });
+
+        var imagePreview = document.getElementById("image-preview");
+        imagePreview.parentNode.removeChild(imagePreview);
+
+        document.getElementById("thumbs").className += "full-width";
     }
 
 </script>
