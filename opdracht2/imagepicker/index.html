@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image picker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #313131;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #3c3c3c;
+        }
+
+        section {
+            max-width: 64em;
+            margin: 0 auto;
+            padding: 1em;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        details {
+            margin-top: 1.5em;
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+            transition: all ease-in-out 0.1s;
+        }
+
+        #thumbs {
+            position: relative;
+        }
+
+        #thumbs.full-width {
+            width: 100%;
+        }
+
+        #thumbs.full-width label {
+            width: 25%;
+            height: auto;
+        }
+
+        #thumbs label {
+            height: 200px;
+        }
+
+        #thumbs img {
+            border: 4px solid #ffffff;
+            border-radius: 0.25em;
+            pointer-events: none;
+        }
+
+        #thumbs label:hover img{
+            border: 4px solid #b2caff;
+        }
+
+        #thumbs label:nth-of-type(odd) {
+            padding-left: 0;
+        }
+
+        #thumbs input[type="radio"]{
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            height: 0;
+            width: 0;
+        }
+
+        #thumbs input[type="radio"]:checked + label img {
+            border: 4px solid #5784FF;
+        }
+
+        #thumbs label {
+            display: inline-block;
+            width: 49%;
+            padding: .25em;
+        }
+
+        #thumbs {
+            display: inline-block;
+            width: 49.5%;
+        }
+
+        #image-preview {
+            padding-top: 0.5em;
+            display: inline-block;
+            width: 49.5%;
+            margin-left: auto;
+            text-align: center;
+            vertical-align: top;
+            height: 385px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.15);
+            background: #f4f4f4 url("placeholder.png") center center no-repeat;
+            border-radius: 0.25em;
+        }
+
+        #image-preview img {
+            max-height: 100%;
+        }
+
+        input[type="file"] {
+            background-color: #f7f7f7;
+            border: 2px dashed #5784FF;
+            border-radius: .25em;
+            width: 100%;
+            padding: 1.5em;
+            margin-top: 1em;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        input[type="file"].file-selected {
+            background-color: #b2caff;
+        }
+
+        button {
+            background-color: #5784FF;
+            color: #fff;
+            padding: 1em 2em;
+            font-size: 1em;
+            border: 0;
+            border-radius: .25em;
+            font-weight: 500;
+            margin-top: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4c78e3;
+            transition: all ease-in-out 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+
+<section>
+    <h1>Kies een afbeelding</h1>
+    <form>
+
+        <fieldset id="thumbs">
+
+            <input type="radio" name="image" id="image-1" value="image-1.png">
+            <label for="image-1">
+                <img src="image-1.png" alt="">
+            </label>
+
+            <input type="radio" name="image" id="image-2" value="image-2.png">
+            <label for="image-2">
+                <img src="image-2.png" alt="">
+            </label>
+            <input type="radio" name="image" id="image-3" value="image-3.png">
+            <label for="image-3">
+                <img src="image-3.png" alt="">
+            </label>
+        </fieldset>
+
+        <label for="file-upload">
+            <div id="image-preview">
+                <img src="" alt="">
+            </div>
+        </label>
+
+        <fieldset>
+            <input type="file" id="file-upload">
+        </fieldset>
+
+        <fieldset>
+            <button>Submit</button>
+        </fieldset>
+    </form>
+</section>
+
+<script>
+    var fileInput = document.querySelector('input[type=file]');
+
+    function clearRadioInput() {
+        document.querySelector("input[type=radio]:checked").checked = false;
+    }
+
+    if(window.FileReader) {
+        function addThumb(src) {
+            var thumbs = document.querySelector("#thumbs");
+            var id = thumbs.querySelectorAll("img").length + 1;
+            var radioHTML = '<input type="radio" name="image" id="image-' + id + '" value="' + src + '">';
+            var labelHTML = '<label for="image-' + id + '"><img src="' + src + '"></label>';
+
+            thumbs.insertAdjacentHTML("beforeend", radioHTML);
+            thumbs.insertAdjacentHTML("beforeend", labelHTML);
+
+            var newRadioButton = document.querySelector("#image-" + id);
+
+            newRadioButton.addEventListener("change", function () {
+                setPreviewImg(this.value);
+            });
+
+            newRadioButton.checked = true;
+        }
+
+        function setPreviewImg(src) {
+            document.querySelector("#image-preview img").src = src;
+        }
+
+        function previewFile() {
+            var file    = fileInput.files[0];
+            var reader  = new FileReader();
+
+            reader.addEventListener("load", function () {
+                addThumb(reader.result);
+                setPreviewImg(reader.result);
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        var radioButtons = document.querySelectorAll('input[type=radio]');
+        for (var i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].addEventListener("change", function () {
+                setPreviewImg(this.value);
+            });
+        }
+
+
+        fileInput.addEventListener("change", function () {
+            previewFile();
+        });
+
+    } else {
+        fileInput.addEventListener("change", function () {
+            clearRadioInput();
+        });
+
+        var imagePreview = document.getElementById("image-preview");
+        imagePreview.parentNode.removeChild(imagePreview);
+
+        document.getElementById("thumbs").className += "full-width";
+    }
+
+</script>
+</body>
+</html>
