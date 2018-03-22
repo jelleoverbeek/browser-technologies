@@ -42,8 +42,6 @@
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 0.25em;
-
             transition: all ease-in-out 0.1s;
         }
 
@@ -53,6 +51,12 @@
 
         #images-thumbs img {
             border: 4px solid #ffffff;
+            border-radius: 0.25em;
+            pointer-events: none;
+        }
+
+        #images-thumbs label:hover img{
+            border: 4px solid #b2caff;
         }
 
         #images-thumbs label:nth-of-type(odd) {
@@ -63,7 +67,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            visibility: hidden;
+            opacity: 0;
             height: 0;
             width: 0;
         }
@@ -71,7 +75,7 @@
         #images-thumbs input[type="radio"]:checked + label img {
             border: 4px solid #5784FF;
         }
-        
+
         #images-thumbs label {
             display: inline-block;
             width: 49%;
@@ -88,8 +92,16 @@
             display: inline-block;
             width: 49.5%;
             margin-left: auto;
-            text-align: right;
+            text-align: center;
             vertical-align: top;
+            height: 385px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.15);
+            background: #f4f4f4 url("placeholder.png") center center no-repeat;
+            border-radius: 0.25em;
+        }
+
+        #image-preview img {
+            max-height: 100%;
         }
 
         input[type="file"] {
@@ -97,9 +109,14 @@
             border: 2px dashed #5784FF;
             border-radius: .25em;
             width: 100%;
-            padding: 2em;
+            padding: 1.5em;
             margin-top: 1em;
             text-align: center;
+            font-size: 0.9em;
+        }
+
+        input[type="file"].file-selected {
+            background-color: #b2caff;
         }
 
         button {
@@ -126,35 +143,32 @@
 <section>
     <h1>Kies een afbeelding</h1>
     <form>
-        
+
         <fieldset id="images-thumbs">
-            
-            <input type="radio" name="image" id="image-1">
+
+            <input type="radio" name="image" id="image-1" value="image-1.png">
             <label for="image-1">
                 <img src="image-1.png" alt="">
             </label>
-            
-            <input type="radio" name="image" id="image-2">
+
+            <input type="radio" name="image" id="image-2" value="image-2.png">
             <label for="image-2">
                 <img src="image-2.png" alt="">
             </label>
-
-            <input type="radio" name="image" id="image-3">
+            <input type="radio" name="image" id="image-3" value="image-3.png">
             <label for="image-3">
                 <img src="image-3.png" alt="">
             </label>
-            <input type="radio" name="image" id="image-4" checked>
-            <label for="image-4">
-                <img src="image-4.png" alt="">
-            </label>
         </fieldset>
 
-        <div id="image-preview">
-            <img src="http://via.placeholder.com/800x600" alt="">
-        </div>
+        <label for="file-upload">
+            <div id="image-preview">
+                <img src="" alt="">
+            </div>
+        </label>
 
         <fieldset>
-            <input type="file">
+            <input type="file" id="file-upload">
         </fieldset>
 
         <fieldset>
@@ -164,6 +178,63 @@
 </section>
 
 <script>
+
+
+    if(window.FileReader) {
+
+        function addThumb(src) {
+            var thumbs = document.querySelector("#images-thumbs");
+            var id = thumbs.querySelectorAll("img").length + 1;
+
+            var radioHTML = '<input type="radio" name="image" id="image-' + id + '" value="' + src + '">';
+            var labelHTML = '<label for="image-' + id + '"><img src="' + src + '"></label>';
+
+            thumbs.insertAdjacentHTML("beforeend", radioHTML);
+            thumbs.insertAdjacentHTML("beforeend", labelHTML);
+
+            var newRadioButton = document.querySelector("#image-" + id);
+
+            newRadioButton.addEventListener("change", function () {
+                setPreviewImg(this.value);
+            });
+
+            newRadioButton.checked = true;
+        }
+
+        function setPreviewImg(src) {
+            document.querySelector("#image-preview img").src = src;
+        }
+
+        function previewFile() {
+            var file    = fileInput.files[0];
+            var reader  = new FileReader();
+
+            reader.addEventListener("load", function () {
+                addThumb(reader.result);
+                setPreviewImg(reader.result);
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        var fileInput = document.querySelector('input[type=file]');
+        var radioButtons = document.querySelectorAll('input[type=radio]');
+
+        for (var i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].addEventListener("change", function () {
+                setPreviewImg(this.value);
+            });
+        }
+
+        fileInput.addEventListener("change", function () {
+            previewFile();
+        });
+
+    } else {
+        document.getElementById("image-preview").className = "hidden";
+    }
 
 </script>
 </body>
