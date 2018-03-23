@@ -1,7 +1,3 @@
-## Component demo's:
-**FAQ:** https://jelleoverbeek.github.io/browser-technologies/opdracht2/faq/  
-**Imagepicker:** https://jelleoverbeek.github.io/browser-technologies/opdracht2/imagepicker/
-
 # Browser Technologies
 //Robuuste, toegankelijke websites leren bouwen … 
 
