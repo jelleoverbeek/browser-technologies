@@ -150,6 +150,10 @@
             transition: all ease-in-out 0.1s;
         }
 
+        .hidden {
+            display: none;
+        }
+
         @media all and (max-width: 37.5em) {
             #thumbs {
                 width: 100%;
@@ -168,7 +172,7 @@
     <h1>Kies een afbeelding</h1>
     <form>
 
-        <fieldset id="thumbs">
+        <fieldset id="thumbs" class="full-width">
 
             <input type="radio" name="image" id="image-1" value="image-1.png">
             <label for="image-1">
@@ -185,7 +189,7 @@
             </label>
         </fieldset>
 
-        <label for="file-upload">
+        <label for="file-upload" id="image-preview-label" class="hidden">
             <div id="image-preview">
                 <img src="" alt="">
             </div>
@@ -202,6 +206,9 @@
 </section>
 
 <script>
+    document.getElementById("image-preview-label").className = "";
+    document.getElementById("thumbs").className = "";
+
     if(document.querySelector) {
         var fileInput = document.querySelector('input[type=file]');
 
@@ -209,7 +216,7 @@
             document.querySelector("input[type=radio]:checked").checked = false;
         }
 
-        if(window.FileReader) {
+        if(window.FileReader && document.addEventListener) {
             function addThumb(src) {
                 var thumbs = document.querySelector("#thumbs");
                 var id = thumbs.querySelectorAll("img").length + 1;
