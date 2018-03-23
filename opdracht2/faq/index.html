@@ -76,7 +76,7 @@
 
 <script>
     var detailsSupported = 'open' in document.createElement('details');
-    if (!detailsSupported) {
+    if (!detailsSupported && document.querySelector) {
         document.body.className = "no-support-details";
         var summaryElements = document.querySelectorAll("summary");
 

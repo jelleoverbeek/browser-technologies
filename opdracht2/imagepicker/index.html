@@ -202,72 +202,73 @@
 </section>
 
 <script>
-    var fileInput = document.querySelector('input[type=file]');
+    if(document.querySelector) {
+        var fileInput = document.querySelector('input[type=file]');
 
-    function clearRadioInput() {
-        document.querySelector("input[type=radio]:checked").checked = false;
-    }
-
-    if(window.FileReader) {
-        function addThumb(src) {
-            var thumbs = document.querySelector("#thumbs");
-            var id = thumbs.querySelectorAll("img").length + 1;
-            var radioHTML = '<input type="radio" name="image" id="image-' + id + '" value="' + src + '">';
-            var labelHTML = '<label for="image-' + id + '"><img src="' + src + '"></label>';
-
-            thumbs.insertAdjacentHTML("beforeend", radioHTML);
-            thumbs.insertAdjacentHTML("beforeend", labelHTML);
-
-            var newRadioButton = document.querySelector("#image-" + id);
-
-            newRadioButton.addEventListener("change", function () {
-                setPreviewImg(this.value);
-            });
-
-            newRadioButton.checked = true;
+        function clearRadioInput() {
+            document.querySelector("input[type=radio]:checked").checked = false;
         }
 
-        function setPreviewImg(src) {
-            document.querySelector("#image-preview img").src = src;
-        }
+        if(window.FileReader) {
+            function addThumb(src) {
+                var thumbs = document.querySelector("#thumbs");
+                var id = thumbs.querySelectorAll("img").length + 1;
+                var radioHTML = '<input type="radio" name="image" id="image-' + id + '" value="' + src + '">';
+                var labelHTML = '<label for="image-' + id + '"><img src="' + src + '"></label>';
 
-        function previewFile() {
-            var file    = fileInput.files[0];
-            var reader  = new FileReader();
+                thumbs.insertAdjacentHTML("beforeend", radioHTML);
+                thumbs.insertAdjacentHTML("beforeend", labelHTML);
 
-            reader.addEventListener("load", function () {
-                addThumb(reader.result);
-                setPreviewImg(reader.result);
-            }, false);
+                var newRadioButton = document.querySelector("#image-" + id);
 
-            if (file) {
-                reader.readAsDataURL(file);
+                newRadioButton.addEventListener("change", function () {
+                    setPreviewImg(this.value);
+                });
+
+                newRadioButton.checked = true;
             }
-        }
 
-        var radioButtons = document.querySelectorAll('input[type=radio]');
-        for (var i = 0; i < radioButtons.length; i++) {
-            radioButtons[i].addEventListener("change", function () {
-                setPreviewImg(this.value);
+            function setPreviewImg(src) {
+                document.querySelector("#image-preview img").src = src;
+            }
+
+            function previewFile() {
+                var file    = fileInput.files[0];
+                var reader  = new FileReader();
+
+                reader.addEventListener("load", function () {
+                    addThumb(reader.result);
+                    setPreviewImg(reader.result);
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            var radioButtons = document.querySelectorAll('input[type=radio]');
+            for (var i = 0; i < radioButtons.length; i++) {
+                radioButtons[i].addEventListener("change", function () {
+                    setPreviewImg(this.value);
+                });
+            }
+
+
+            fileInput.addEventListener("change", function () {
+                previewFile();
             });
+
+        } else {
+            fileInput.addEventListener("change", function () {
+                clearRadioInput();
+            });
+
+            var imagePreview = document.getElementById("image-preview");
+            imagePreview.parentNode.removeChild(imagePreview);
+
+            document.getElementById("thumbs").className += "full-width";
         }
-
-
-        fileInput.addEventListener("change", function () {
-            previewFile();
-        });
-
-    } else {
-        fileInput.addEventListener("change", function () {
-            clearRadioInput();
-        });
-
-        var imagePreview = document.getElementById("image-preview");
-        imagePreview.parentNode.removeChild(imagePreview);
-
-        document.getElementById("thumbs").className += "full-width";
     }
-
 </script>
 </body>
 </html>
