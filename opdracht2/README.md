@@ -7,7 +7,7 @@ Bij de FAQ heb ik gebruik gemaakt van summary en details elementen. Deze element
 
 [FAQ Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/faq/)  
 
-**Browser support**
+**Tested and working browsers**
 - Chrome
 - Firefox
 - Edge
@@ -20,7 +20,7 @@ Voor de imagepicker heb ik gebruik gemaakt van radio buttons. Zodra er een afbee
    
 [Imagepicker Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/imagepicker/)  
 
-**Browser support**
+**Tested and working browsers**
 - Chrome
 - Firefox
 - Edge
