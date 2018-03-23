@@ -60,7 +60,7 @@
         }
 
         #thumbs label {
-            height: 200px;
+            max-height: 200px;
         }
 
         #thumbs img {
@@ -148,6 +148,16 @@
         button:hover {
             background-color: #4c78e3;
             transition: all ease-in-out 0.1s;
+        }
+
+        @media all and (max-width: 37.5em) {
+            #thumbs {
+                width: 100%;
+            }
+
+            #image-preview {
+                width: 100%;
+            }
         }
     </style>
 </head>
