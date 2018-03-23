@@ -5,12 +5,28 @@ Deze opdracht bestaat uit twee componenten die progressive enhanced gebouwd zijn
 ### FAQ  
 Bij de FAQ heb ik gebruik gemaakt van summary en details elementen. Deze elementen zijn redelijk nieuw en worden dus niet gesupport in oudere browsers. In browsers die AddEventListener en querySelector ondersteunen is de functionaliteit alsnog beschikbaar d.m.v. JavaScript.  
 
-[FAQ Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/faq/)
+[FAQ Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/faq/)  
+
+**Browser support**
+- Chrome
+- Firefox
+- Edge
+- Safari
+- IE 11
+- IE 9
     
 ### Imagepicker  
 Voor de imagepicker heb ik gebruik gemaakt van radio buttons. Zodra er een afbeelding geupload wordt en er een filereader api beschikbaar is zal de afbeelding als radio button toegevoegd en geselecteerd worden. De fallback is een standaard file input en het deselecteren van de radio buttons zodra deze ingevuld wordt.
    
-[Imagepicker Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/imagepicker/)
+[Imagepicker Demo](https://jelleoverbeek.github.io/browser-technologies/opdracht2/imagepicker/)  
+
+**Browser support**
+- Chrome
+- Firefox
+- Edge
+- Safari
+- IE 11
+- IE 9
 
 ## Device lab tests
 
@@ -64,20 +80,3 @@ Voor de imagepicker heb ik gebruik gemaakt van radio buttons. Zodra er een afbee
 **Img**
 ![Surface img](https://d.pr/i/rWol4b+ "Surface img")
 
-
-
-
-## Opdracht 2 - 1, 2, 3 Feature Detectie
-Zoek uit HTML, CSS & JS per onderwerp 2 voor jou nieuwe features om te onderzoeken en fallback voor te bouwen. Gebruik html5test.com, css3test.com en kangax.github.io/compat-table/es6/
-
-- Per feature: Zoek uit hoe je deze kunt testen. Verzamel uitleg en artikelen. Bouw een (kleine) progressive enhanced demo (zonder extra tools, gewoon in 1 HTML file, zo simpel mogelijk). Test de feature (en fallback) op verschillende browsers en het device lab.Let op: Gebruik van polyfills is niet toegestaan.
-- Post je 6 afzonderlijke demo’s op GitHub met uitleg in een README file. Wat is de feature, welke browsers/devices ondersteunen deze wel/niet, hoe zorg je dat de fallback nuttig is?
-
-criteria
-- 6 features zijn onderzocht en er is een demo gemaakt.
-- De code staat in een repository op GitHub.
-- Een Readme is toegevoegd met, per feature:
--		Een beschrijving van de feature.
--		Bronnen van uitleg en gebruikte artikelen.
--		Welke browsers/devices ondersteunen deze wel/niet.
--		Een beschrijving hoe de fallback werkt.
