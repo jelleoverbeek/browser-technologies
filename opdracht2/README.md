@@ -39,7 +39,7 @@ Voor de imagepicker heb ik gebruik gemaakt van radio buttons. Zodra er een afbee
 
 ### Chinese Firefox
 **Faq**
-![Chinese Firefox faq](hhttps://d.pr/i/UgdnQV+ "Chinese Firefox faq")
+![Chinese Firefox faq](https://d.pr/i/UgdnQV+ "Chinese Firefox faq")
 
 **Img**
 ![Chinese Firefox img](https://d.pr/i/Ln32Bu+ "Chinese Firefox img")
