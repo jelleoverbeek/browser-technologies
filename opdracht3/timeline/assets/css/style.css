@@ -15,11 +15,19 @@ p {
 }
 
 .timeline {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 7.875em;
+    display: block;
+    width: 13em;
+    margin: 7.875em auto 0 auto;
+}
+
+@supports (display: flex) {
+    .timeline {
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .timeline-item {
@@ -56,6 +64,40 @@ p {
     border: 0.125em solid #D8E0E5;
 }
 
+.timeline-path {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    width: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem;
+}
+
+.timeline-path__start:after {
+    margin: 0.5rem auto;
+    content: " ";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #D8E0E5;
+}
+
+.timeline-path__year {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-path__year::before {
+    content: " ";
+    display: block;
+    height: 13rem;
+    width: 0.125rem;
+    margin: 0 auto 0.5rem auto;
+    background-image: repeating-linear-gradient(180deg, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
+}
+
 .timeline-path__start:after {
     content: " ";
     display: block;
@@ -64,4 +106,17 @@ p {
     height: 0.5em;
     border-radius: 0.5em;
     background-color: #D8E0E5;
+}
+
+.js-supported .timeline {
+    position: relative;
+}
+
+.js-supported .timeline-item {
+    position: absolute;
+    top: 0;
+}
+
+.js-supported .timeline-item::before {
+    display: none;
 }
