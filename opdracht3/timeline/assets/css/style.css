@@ -17,7 +17,13 @@ p {
 .timeline {
     display: block;
     width: 13em;
-    margin: 16em auto;
+    margin: 3em auto;
+}
+
+@media all and (min-width: 56.25em) {
+    .timeline {
+        margin: 16em auto;
+    }
 }
 
 .timeline {

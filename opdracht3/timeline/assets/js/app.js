@@ -1,7 +1,8 @@
 if( document.querySelector
     && document.addEventListener
     && ('classList' in document.body)
-    && document.body.getBoundingClientRect()) {
+    && document.body.getBoundingClientRect()
+    && window.innerWidth >= 900) {
 
     document.body.classList.add("js-supported");
 
@@ -97,7 +98,7 @@ if( document.querySelector
         init: function () {
             _this = this;
 
-            window.addEventListener("scroll", function(ev) {
+            window.addEventListener("scroll", function (ev) {
                 _this.checkPosition(ev);
             });
 
