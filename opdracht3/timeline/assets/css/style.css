@@ -1,0 +1,171 @@
+html {
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    color: #313131;
+    line-height: 1.5;
+    margin: .5em 0 0 0;
+}
+
+.invisible {
+    opacity: 0.3;
+}
+
+.timeline {
+    display: block;
+    width: 13em;
+    margin: 8em auto;
+}
+
+@supports (display: flex) {
+    .timeline {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: auto;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+
+.timeline-item {
+    width: 13.125em;
+    margin-top: 1em;
+    text-align: center;
+    -webkit-transition: -webkit-transform ease-in-out .3s;
+    transition: -webkit-transform ease-in-out .3s;
+    -o-transition: transform ease-in-out .3s;
+    transition: transform ease-in-out .3s;
+    transition: transform ease-in-out .3s, -webkit-transform ease-in-out .3s;
+}
+
+.timeline-item:first-child::before {
+    display: none;
+}
+
+.timeline-item::before {
+    content: " ";
+    display: block;
+    height: 3em;
+    width: 0.125em;
+    margin: 0 auto 0.5em auto;
+    background: #D8E0E5;
+    background: transparent -webkit-repeating-linear-gradient(top, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
+    background: transparent -o-repeating-linear-gradient(top, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
+    background: transparent repeating-linear-gradient(180deg, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
+}
+
+.timeline-item__meta {
+    font-size: .75em;
+    color: #9fa5a9;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.timeline-item__icon {
+    display: inline-block;
+    padding: 1em;
+    border-radius: 15.625em;
+    border: 0.125em solid #D8E0E5;
+}
+
+.timeline-path {
+    list-style: none;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 3rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.125rem;
+}
+
+.timeline-path__start:after {
+    margin: 0.5rem auto;
+    content: " ";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #D8E0E5;
+}
+
+.timeline-path__year {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-path__year::before {
+    content: " ";
+    display: block;
+    height: 13rem;
+    width: 0.125rem;
+    margin: 0 auto 0.5rem auto;
+    background-image: -webkit-repeating-linear-gradient(top, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
+    background-image: -o-repeating-linear-gradient(top, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
+    background-image: repeating-linear-gradient(180deg, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
+}
+
+.timeline-path__start:after {
+    content: " ";
+    display: block;
+    margin: 0.5em auto;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.5em;
+    background-color: #D8E0E5;
+}
+
+.js-supported .timeline-item__meta {
+    display: none;
+}
+
+.js-supported .timeline {
+    position: relative;
+}
+
+.js-supported .timeline-item {
+    margin-top: 0;
+    position: absolute;
+}
+
+.js-supported .timeline-item--work {
+    -webkit-transform: translateX(-55%) translateY(-50%);
+    -ms-transform: translateX(-55%) translateY(-50%);
+    transform: translateX(-55%) translateY(-50%);
+}
+
+.js-supported .timeline-item--education {
+    -webkit-transform: translateX(55%) translateY(-50%);
+    -ms-transform: translateX(55%) translateY(-50%);
+    transform: translateX(55%) translateY(-50%);
+}
+
+.js-supported .timeline-item::before {
+    display: none;
+}
+
+.js-supported .timeline-item.colliding {
+    -webkit-transform: translateX(135%) translateY(-50%);
+    -ms-transform: translateX(135%) translateY(-50%);
+    transform: translateX(135%) translateY(-50%);
+}
