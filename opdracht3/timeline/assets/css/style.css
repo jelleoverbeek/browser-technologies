@@ -17,37 +17,34 @@ p {
 .timeline {
     display: block;
     width: 13em;
-    margin: 8em auto;
+    margin: 16em auto;
 }
 
-@supports (display: flex) {
-    .timeline {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        width: auto;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
+.timeline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .timeline-item {
     width: 13.125em;
     margin-top: 1em;
     text-align: center;
-    -webkit-transition: -webkit-transform ease-in-out .3s;
-    transition: -webkit-transform ease-in-out .3s;
-    -o-transition: transform ease-in-out .3s;
-    transition: transform ease-in-out .3s;
-    transition: transform ease-in-out .3s, -webkit-transform ease-in-out .3s;
+    -webkit-transition: -webkit-transform ease-in-out .2s;
+    transition: -webkit-transform ease-in-out .2s;
+    -o-transition: transform ease-in-out .2s;
+    transition: transform ease-in-out .2s, -webkit-transform ease-in-out .2s;
 }
 
 .timeline-item:first-child::before {
@@ -160,12 +157,29 @@ p {
     transform: translateX(55%) translateY(-50%);
 }
 
+/*
+filty hack to fix this internet explorer bug:
+https://stackoverflow.com/questions/27000492/css3-transform-property-working-differently-in-internet-explorer
+*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .js-supported .timeline-item--work {
+        right: 50%;
+    }
+}
+
+
 .js-supported .timeline-item::before {
     display: none;
 }
 
-.js-supported .timeline-item.colliding {
+.js-supported .timeline-item--education.colliding {
     -webkit-transform: translateX(135%) translateY(-50%);
     -ms-transform: translateX(135%) translateY(-50%);
     transform: translateX(135%) translateY(-50%);
+}
+
+.js-supported .timeline-item--work.colliding {
+    -webkit-transform: translateX(-135%) translateY(-50%);
+    -ms-transform: translateX(-135%) translateY(-50%);
+    transform: translateX(-135%) translateY(-50%);
 }
