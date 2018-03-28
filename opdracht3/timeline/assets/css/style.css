@@ -22,10 +22,19 @@ p {
 
 @supports (display: flex) {
     .timeline {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: auto;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
 }
@@ -34,7 +43,11 @@ p {
     width: 13.125em;
     margin-top: 1em;
     text-align: center;
+    -webkit-transition: -webkit-transform ease-in-out .3s;
+    transition: -webkit-transform ease-in-out .3s;
+    -o-transition: transform ease-in-out .3s;
     transition: transform ease-in-out .3s;
+    transition: transform ease-in-out .3s, -webkit-transform ease-in-out .3s;
 }
 
 .timeline-item:first-child::before {
@@ -48,6 +61,8 @@ p {
     width: 0.125em;
     margin: 0 auto 0.5em auto;
     background: #D8E0E5;
+    background: transparent -webkit-repeating-linear-gradient(top, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
+    background: transparent -o-repeating-linear-gradient(top, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
     background: transparent repeating-linear-gradient(180deg, #D8E0E5 0em, #D8E0E5 0.25em, transparent 0.25em, transparent 0.5em);
 }
 
@@ -68,10 +83,19 @@ p {
 .timeline-path {
     list-style: none;
     padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 3rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-size: 1.125rem;
 }
@@ -96,6 +120,8 @@ p {
     height: 13rem;
     width: 0.125rem;
     margin: 0 auto 0.5rem auto;
+    background-image: -webkit-repeating-linear-gradient(top, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
+    background-image: -o-repeating-linear-gradient(top, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
     background-image: repeating-linear-gradient(180deg, #D8E0E5 0rem, #D8E0E5 0.25rem, transparent 0.25rem, transparent 0.5rem);
 }
 
@@ -123,10 +149,14 @@ p {
 }
 
 .js-supported .timeline-item--work {
+    -webkit-transform: translateX(-55%) translateY(-50%);
+    -ms-transform: translateX(-55%) translateY(-50%);
     transform: translateX(-55%) translateY(-50%);
 }
 
 .js-supported .timeline-item--education {
+    -webkit-transform: translateX(55%) translateY(-50%);
+    -ms-transform: translateX(55%) translateY(-50%);
     transform: translateX(55%) translateY(-50%);
 }
 
@@ -135,5 +165,7 @@ p {
 }
 
 .js-supported .timeline-item.colliding {
+    -webkit-transform: translateX(135%) translateY(-50%);
+    -ms-transform: translateX(135%) translateY(-50%);
     transform: translateX(135%) translateY(-50%);
 }
