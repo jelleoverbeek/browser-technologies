@@ -34,21 +34,22 @@ if( document.querySelector
         checkPosition: function (ev) {
             for(var i = 0; i < this.items.length; i++ ) {
                 var item = this.items[i];
-                var rect = item.getBoundingClientRect();
-
                 var startTop = this.getTop(item.dataset.yearStart);
                 var endTop = this.getTop(item.dataset.yearEnd);
                 var xCenter = window.innerHeight / 2;
                 var scrollPos = window.scrollY - this.wrapper.offsetTop + xCenter;
-
-                console.log(startTop, endTop, window.scrollY);
 
                 if(scrollPos > endTop && scrollPos < startTop) {
                     item.style.position = "fixed";
                     item.style.top = xCenter + "px";
                 } else {
                     item.style.position = "absolute";
-                    /*item.style.top = startTop + "px";*/
+
+                    if(scrollPos > startTop) {
+                        item.style.top = startTop + "px";
+                    } else {
+                        item.style.top = endTop + "px";
+                    }
                 }
 
             }
