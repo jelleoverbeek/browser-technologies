@@ -4,6 +4,10 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    padding-top: 7.875em;
+}
+
 p {
     color: #313131;
     line-height: 1.5;
@@ -17,7 +21,7 @@ p {
 .timeline {
     display: block;
     width: 13em;
-    margin: 7.875em auto 0 auto;
+    margin: 0 auto;
 }
 
 @supports (display: flex) {
@@ -118,11 +122,11 @@ p {
 }
 
 .js-supported .timeline-item--work {
-    transform: translateX(-55%);
+    transform: translateX(-55%) translateY(-50%);
 }
 
 .js-supported .timeline-item--education {
-    transform: translateX(55%);
+    transform: translateX(55%) translateY(-50%);
 }
 
 .js-supported .timeline-item::before {
