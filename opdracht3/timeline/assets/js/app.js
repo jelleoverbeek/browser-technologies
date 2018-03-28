@@ -10,8 +10,34 @@ if( document.querySelector
         items: document.querySelectorAll(".timeline-item"),
         years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011],
         yearElements: [],
-        setFixed: function () {
+        checkOverlaps: function () {
+            var itemObjs = [];
 
+            for(var i = 0; i < this.items.length; i++) {
+                var item = this.items[i];
+
+                itemObjs.push({
+                    index: i,
+                    item: item,
+                    start: item.dataset.yearStart - 0,
+                    end: item.dataset.yearEnd - 0,
+                    type: item.dataset.type
+                });
+            }
+
+            for(var i = 0; i < itemObjs.length; i++) {
+                var itemObj = itemObjs[i];
+
+                for(var x = 0; x < itemObjs.length; x++) {
+                    var compareObj = itemObjs[x];
+
+                    if(itemObj.type === compareObj.type && itemObj.index !== compareObj.index) {
+                        var collide = itemObj.start > compareObj.end;
+
+                        console.log(collide, compareObj);
+                    }
+                }
+            }
         },
         getBeforeHeight: function (element) {
             var height = window.getComputedStyle(element, ':before').getPropertyValue('height');
@@ -42,8 +68,11 @@ if( document.querySelector
                 if(scrollPos > endTop && scrollPos < startTop) {
                     item.style.position = "fixed";
                     item.style.top = xCenter + "px";
+                    item.classList.add("sticky");
+
                 } else {
                     item.style.position = "absolute";
+                    item.classList.remove("sticky");
 
                     if(scrollPos > startTop) {
                         item.style.top = startTop + "px";
@@ -82,10 +111,12 @@ if( document.querySelector
 
             window.addEventListener("scroll", function(ev) {
                 _this.checkPosition(ev);
+                // _this.checkOverlaps();
             });
 
             this.addPath();
             this.calcPositions();
+            this.checkOverlaps();
         }
     };
 

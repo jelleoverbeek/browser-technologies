@@ -132,3 +132,7 @@ p {
 .js-supported .timeline-item::before {
     display: none;
 }
+
+.colliding.sticky {
+    background-color: red;
+}
