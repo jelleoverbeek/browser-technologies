@@ -4,10 +4,6 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    padding-top: 7.875em;
-}
-
 p {
     color: #313131;
     line-height: 1.5;
@@ -21,7 +17,7 @@ p {
 .timeline {
     display: block;
     width: 13em;
-    margin: 0 auto;
+    margin: 8em auto;
 }
 
 @supports (display: flex) {
@@ -38,6 +34,7 @@ p {
     width: 13.125em;
     margin-top: 1em;
     text-align: center;
+    transition: transform ease-in-out .3s;
 }
 
 .timeline-item:first-child::before {
@@ -112,6 +109,10 @@ p {
     background-color: #D8E0E5;
 }
 
+.js-supported .timeline-item__meta {
+    display: none;
+}
+
 .js-supported .timeline {
     position: relative;
 }
@@ -133,6 +134,6 @@ p {
     display: none;
 }
 
-.colliding.sticky {
-    background-color: red;
+.js-supported .timeline-item.colliding {
+    transform: translateX(135%) translateY(-50%);
 }

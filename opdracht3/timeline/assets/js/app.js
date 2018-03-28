@@ -10,32 +10,22 @@ if( document.querySelector
         items: document.querySelectorAll(".timeline-item"),
         years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011],
         yearElements: [],
-        checkOverlaps: function () {
-            var itemObjs = [];
+        checkOverlap: function(item, scrollPos) {
+            var rect = item.getBoundingClientRect();
 
-            for(var i = 0; i < this.items.length; i++) {
-                var item = this.items[i];
+            if(item.dataset.overlapStart && item.dataset.overlapEnd) {
 
-                itemObjs.push({
-                    index: i,
-                    item: item,
-                    start: item.dataset.yearStart - 0,
-                    end: item.dataset.yearEnd - 0,
-                    type: item.dataset.type
-                });
-            }
+                var overlapStart = this.getTop(item.dataset.overlapStart) + rect.height;
+                var overlapEnd = this.getTop(item.dataset.overlapEnd) - rect.height;
 
-            for(var i = 0; i < itemObjs.length; i++) {
-                var itemObj = itemObjs[i];
+                console.log(overlapEnd);
 
-                for(var x = 0; x < itemObjs.length; x++) {
-                    var compareObj = itemObjs[x];
+                if(scrollPos > overlapEnd && scrollPos < overlapStart) {
+                    console.log('overlap');
 
-                    if(itemObj.type === compareObj.type && itemObj.index !== compareObj.index) {
-                        var collide = itemObj.start > compareObj.end;
-
-                        console.log(collide, compareObj);
-                    }
+                    item.classList.add("colliding");
+                } else {
+                    item.classList.remove("colliding");
                 }
             }
         },
@@ -62,14 +52,16 @@ if( document.querySelector
                 var item = this.items[i];
                 var startTop = this.getTop(item.dataset.yearStart);
                 var endTop = this.getTop(item.dataset.yearEnd);
+
                 var xCenter = window.innerHeight / 2;
                 var scrollPos = window.scrollY - this.wrapper.offsetTop + xCenter;
+
+                this.checkOverlap(item, scrollPos);
 
                 if(scrollPos > endTop && scrollPos < startTop) {
                     item.style.position = "fixed";
                     item.style.top = xCenter + "px";
                     item.classList.add("sticky");
-
                 } else {
                     item.style.position = "absolute";
                     item.classList.remove("sticky");
@@ -111,12 +103,10 @@ if( document.querySelector
 
             window.addEventListener("scroll", function(ev) {
                 _this.checkPosition(ev);
-                // _this.checkOverlaps();
             });
 
             this.addPath();
             this.calcPositions();
-            this.checkOverlaps();
         }
     };
 
