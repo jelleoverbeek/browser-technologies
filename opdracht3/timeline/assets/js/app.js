@@ -18,11 +18,7 @@ if( document.querySelector
                 var overlapStart = this.getTop(item.dataset.overlapStart) + rect.height;
                 var overlapEnd = this.getTop(item.dataset.overlapEnd) - rect.height;
 
-                console.log(overlapEnd);
-
                 if(scrollPos > overlapEnd && scrollPos < overlapStart) {
-                    console.log('overlap');
-
                     item.classList.add("colliding");
                 } else {
                     item.classList.remove("colliding");
@@ -52,9 +48,8 @@ if( document.querySelector
                 var item = this.items[i];
                 var startTop = this.getTop(item.dataset.yearStart);
                 var endTop = this.getTop(item.dataset.yearEnd);
-
                 var xCenter = window.innerHeight / 2;
-                var scrollPos = window.scrollY - this.wrapper.offsetTop + xCenter;
+                var scrollPos = window.pageYOffset - this.wrapper.offsetTop + xCenter;
 
                 this.checkOverlap(item, scrollPos);
 
@@ -63,6 +58,7 @@ if( document.querySelector
                     item.style.top = xCenter + "px";
                     item.classList.add("sticky");
                 } else {
+
                     item.style.position = "absolute";
                     item.classList.remove("sticky");
 
