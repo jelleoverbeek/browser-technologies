@@ -146,15 +146,15 @@ p {
 }
 
 .js-supported .timeline-item--work {
-    -webkit-transform: translateX(-55%) translateY(-50%);
-    -ms-transform: translateX(-55%) translateY(-50%);
-    transform: translateX(-55%) translateY(-50%);
+    -webkit-transform: translateX(-70%) translateY(-50%);
+    -ms-transform: translateX(-70%) translateY(-50%);
+    transform: translateX(-70%) translateY(-50%);
 }
 
 .js-supported .timeline-item--education {
-    -webkit-transform: translateX(55%) translateY(-50%);
-    -ms-transform: translateX(55%) translateY(-50%);
-    transform: translateX(55%) translateY(-50%);
+    -webkit-transform: translateX(70%) translateY(-50%);
+    -ms-transform: translateX(70%) translateY(-50%);
+    transform: translateX(70%) translateY(-50%);
 }
 
 /*
@@ -173,13 +173,13 @@ https://stackoverflow.com/questions/27000492/css3-transform-property-working-dif
 }
 
 .js-supported .timeline-item--education.colliding {
-    -webkit-transform: translateX(135%) translateY(-50%);
-    -ms-transform: translateX(135%) translateY(-50%);
-    transform: translateX(135%) translateY(-50%);
+    -webkit-transform: translateX(160%) translateY(-50%);
+    -ms-transform: translateX(160%) translateY(-50%);
+    transform: translateX(160%) translateY(-50%);
 }
 
 .js-supported .timeline-item--work.colliding {
-    -webkit-transform: translateX(-135%) translateY(-50%);
-    -ms-transform: translateX(-135%) translateY(-50%);
-    transform: translateX(-135%) translateY(-50%);
+    -webkit-transform: translateX(-160%) translateY(-50%);
+    -ms-transform: translateX(-160%) translateY(-50%);
+    transform: translateX(-160%) translateY(-50%);
 }
