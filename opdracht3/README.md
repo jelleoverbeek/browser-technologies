@@ -89,7 +89,9 @@ Even without any CSS or JavaScript the timeline works very well. There is a fall
 - Chinese Firefox ✅
 - Chinese Android ✅
 
-![Device lab tests](https://d.pr/i/Eho9sd+ "Device lab tests")
+![Device lab tests](https://d.pr/i/n06jmT+ "Device lab tests")
+
+![Device lab tests](https://d.pr/i/m9c1IJ+ "Device lab tests")
 
 ## Roadmap
 
