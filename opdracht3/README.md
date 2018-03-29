@@ -1,17 +1,12 @@
 # Browser Technologies - Opdracht 3
 
-- [Browser Technologies - Opdracht 2](#browser-technologies---opdracht-2)
-  * [Componenten:](#componenten-)
-    + [FAQ](#faq)
-    + [Imagepicker](#imagepicker)
+- [Browser Technologies - Opdracht 3](#browser-technologies---opdracht-3)
+    + [Timeline](#timeline)
+  * [Uitbreiden](#uitbreiden)
+    + [Attributen](#attributen)
+  * [Accessibility](#accessibility)
   * [Device lab tests](#device-lab-tests)
-    + [Chinese Android](#chinese-android)
-    + [Chinese Firefox](#chinese-firefox)
-    + [Kindle](#kindle)
-    + [Nexus](#nexus)
-    + [Nokia](#nokia)
-    + [Samsung](#samsung)
-    + [Surface](#surface)
+  * [Roadmap](#roadmap)
 
 ### Timeline  
 Tijdlijn voor mijn portfolio website waarin de gebruiker mijn ervaring en scholing kan zien.
