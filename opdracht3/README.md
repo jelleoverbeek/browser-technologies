@@ -9,12 +9,22 @@ Tijdlijn voor mijn portfolio website waarin de gebruiker mijn ervaring en scholi
 
 **Geteste en werkende browsers**
 - Chrome ✅
+
 - Firefox ✅ 
+
 - Edge ✅
+
 - Safari ✅
+
 - IE 11 ✅
-- IE 10 ❌
+  IE11 contains a bug that I fixed with a IE10/11 only Media Query ```@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {...}```
+
+  Bug: https://stackoverflow.com/questions/27000492/css3-transform-property-working-differently-in-internet-explorer
+
+- IE 10 doesn't wok ❌
+
 - IE 9 ✅
+
 - IE 8 ✅
 
 
@@ -80,3 +90,8 @@ Even without any CSS or JavaScript the timeline works very well. There is a fall
 - Chinese Android ✅
 
 ![Device lab tests](https://d.pr/i/Eho9sd+ "Device lab tests")
+
+## Roadmap
+
+- IE10 fix
+- Adding IntersectionObserver(): https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
