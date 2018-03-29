@@ -1,20 +1,82 @@
-# Browser Technologies
-//Robuuste, toegankelijke websites leren bouwen … 
+Browser Technologies - Opdracht 3
 
-## Opdracht 3 - Progressive Enhanced Browser Technologies 
-Maak een demo op basis van een use case. Zorg dat alle gebruikers, met alle browsers, in iedere context minimaal de core functionaliteit te zien/horen/voelen krijgen. Bouw je demo in 3 lagen, volgens het principe van Progressive Enhancement. Gebruik als enhanced feature een (hippe, innovatieve, vooruitstrevende) Browser Technologie die je gaat onderzoeken op functionaliteit, toegankelijkheid en (browser) ondersteuning.
+### Timeline  
+Tijdlijn voor mijn portfolio website waarin de gebruiker mijn ervaring en scholing kan zien.
 
-Criteria
-- De code staat in een repository op GitHub
-- Er is een Readme toegevoegd met daarin beschreven:
-- 	een beschrijving van de core functionality
-- 	een beschrijving van de feature(s)/Browser Technologies
-- 	welke browser de feature(s) wel/niet ondersteunen
-- 	een beschrijving van de accessibility issues die zijn onderzocht
-- De demo is opgebouwd in 3 lagen, volgens het principe van Progressive Enhancement
-- De user experience van de demo is goed
-- 	de leesbaarheidsregels zijn toegepast, contrast en kleuren kloppen
-- 	het heeft een gebruiksvriendelijke interface, met gebruikmaking van affordance en feedback op de interactieve elementen
-- Student kan uitleggen wat Progressive Enhancement en Feature Detectie is en hoe dit toe te passen in Web Development
+[Timeline demo](https://jelleoverbeek.github.io/browser-technologies/opdracht3/timeline/)  
 
- 
+![Demo](https://d.pr/i/ubW7bX+ "Demo")
+
+**Geteste en werkende browsers**
+- Chrome ✅
+- Firefox ✅ 
+- Edge ✅
+- Safari ✅
+- IE 11 ✅
+- IE 10 ❌
+- IE 9 ✅
+- IE 8 ✅
+
+
+
+## Uitbreiden
+
+De tijdlijn kan uitgebreid worden door de volgende code toe te voegen:
+
+```html
+<article class="timeline-item timeline-item--education"
+         data-year-start="2011"
+         data-year-end="2018"
+         data-overlap-start="2014" 
+         data-overlap-end="2015">
+    <div class="timeline-item__icon">
+        <img src="image.png" srcset="image.png 1x, image@2x.png 2x" alt="">
+    </div>
+    <p class="timeline-item__meta">2011 - 2015</p>
+    <p>Study Media Design</p>
+</article>
+```
+
+De jaren lopen van hoog naar laag. Hierdoor lijkt het raar dat het `data-year-start="2011"` de verticale eindpositie bepaald.
+
+### Attributen
+
+- **Start item**
+  `data-year-start="START_YEAR"`
+   Voeg hier het startjaar toe. Hier zal het item stoppen met scrollen en blijven hangen.
+- **Einde item**
+  `data-year-end="END_YEAR"` 
+  Voeg hier het eindjaar toe. Hier zal het item gepositioneerd zijn voordat er gescrollt wordt.
+- **Overlap start - optioneel **
+  `data-year-overlap-start="START_YEAR"` 
+  Vul hier in wanneer het item een ander item overlapt.
+- **Overlap eind - Optioneel **
+  `data-year-overlap-end="END_YEAR"` 
+  Voeg hier het startjaar toe. 
+
+
+
+## Accessibility
+
+Even without any CSS or JavaScript the timeline works very well. There is a fallback to the `display: block;` technique instead of `display: flex;`. Doing this made the timeline work very well on all devices.
+
+
+
+**Chrome accessibility audit**
+
+![Accessibility audit](https://d.pr/i/FNHwZe+ "Accessibility audit")
+
+
+
+## Device lab tests
+
+**Geteste en werkende apparaten**
+
+- Surface (Edge) ✅
+- Kindle ✅
+- Nokia ✅
+- Samsung Phone ✅
+- Chinese Firefox ✅
+- Chinese Android ✅
+
+![Device lab tests](https://d.pr/i/Eho9sd+ "Device lab tests")
