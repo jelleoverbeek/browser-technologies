@@ -89,7 +89,22 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
  
 ### Breedband internet
 - Added defer attributes to the scripts and moved them to the head. The app loading speed is quite fast but it depends on the Last.fm API.
+```html
+<script src="./assets/js/routie.js" defer></script>
+<script src="./assets/js/transparency.js" defer></script>
+<script src="./assets/js/config.js" defer></script>
+<script src="./assets/js/app.js" type="module" defer></script>
+```
 - Font display is set to swap. This way the user doesn't have to wait for the custom fonts to load.
+```css
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url("../fonts/Roboto-Regular.woff") format('woff');
+}
+```
 
 ### Cookies
 - The app does not use any cookies.
@@ -101,8 +116,7 @@ App: https://jelleoverbeek.github.io/browser-technologies/opdracht1/wafs
 - To increase the usability for keyboard users I added some focus states.
 
 ### ScreenReader
-- I tested it using the native Mac OS screenreader and it worked because I used semantic elements.
-- Changed alt attributes to empty ones so the screenreader won't read the src attributes.  
+I tested it using the native Mac OS screenreader and it worked good because I used as many semantic elements as possible. Interesting to hear was that the screenreader was playing the file name when no alt attribute was available. Krijn gave me the tip to add empty alt attributes to fix this problem.
 
 ### CSS not loading 
 - Added JavaScript snippet that adds inline CSS instead of a class when the CSS didn't load.  
